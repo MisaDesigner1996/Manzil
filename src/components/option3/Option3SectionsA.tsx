@@ -40,13 +40,13 @@ export function Option3Navbar({ onOpenModal }: { onOpenModal: (modal: ModalType)
         <a
           href="#top"
           aria-label="Manzil Home"
-          className="inline-flex items-center bg-white rounded-lg px-2.5 py-1 shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9B8CC4]"
+          className="inline-flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9B8CC4]"
         >
           <img
-            src="/assets/aistudio/manzil_logo_transparent_9f6b6dbe.png"
+            src="/assets/aistudio/Manzil_Cloud_Tower_Logo_4c2259f1.png"
             alt="Manzil"
             referrerPolicy="no-referrer"
-            className="h-9 w-auto object-contain block"
+            className="h-[52px] sm:h-14 w-auto object-contain block"
           />
         </a>
 

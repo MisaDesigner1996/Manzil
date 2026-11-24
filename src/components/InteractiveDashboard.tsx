@@ -54,10 +54,11 @@ const SIDEBAR_ITEMS = [
 export function InteractiveDashboard({
   variant = 'option2',
 }: {
-  variant?: 'option1' | 'option2' | 'option3';
+  variant?: 'option1' | 'option2' | 'option3' | 'option4';
 }) {
   const isOpt1 = variant === 'option1';
-  const isOpt3 = variant === 'option3';
+  const isOpt4 = variant === 'option4';
+  const isOpt3 = variant === 'option3' || isOpt4;
   const [activeNav, setActiveNav] = useState('Dashboard');
   const [collected, setCollected] = useState(4200);
   const [expenses, setExpenses] = useState(780);
@@ -232,9 +233,11 @@ export function InteractiveDashboard({
     <section
       id="dashboard"
       className={
-        isOpt3
-          ? 'bg-[#09090D] py-16 sm:py-24 border-b border-[#222130]'
-          : 'bg-white py-16 sm:py-24 border-b border-[#EAE6F3]'
+        isOpt4
+          ? 'bg-[#08080D] py-16 sm:py-24 border-b border-[#1E1C2C]'
+          : isOpt3
+            ? 'bg-[#09090D] py-16 sm:py-24 border-b border-[#222130]'
+            : 'bg-white py-16 sm:py-24 border-b border-[#EAE6F3]'
       }
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -357,14 +360,18 @@ export function InteractiveDashboard({
                 <div className="flex lg:flex-col gap-1.5 min-w-max lg:min-w-0">
                   <div
                     className={`hidden lg:flex items-center gap-2.5 px-3 py-2 mb-3 rounded-lg ${
-                      isOpt1 || isOpt3 ? 'bg-white' : ''
+                      isOpt4 ? '' : isOpt1 || isOpt3 ? 'bg-white' : ''
                     }`}
                   >
                     <img
-                      src="/assets/aistudio/manzil_logo_transparent_9f6b6dbe.png"
+                      src={
+                        isOpt4
+                          ? '/assets/aistudio/Manzil_Cloud_Tower_Logo_4c2259f1.png'
+                          : '/assets/aistudio/manzil_logo_transparent_9f6b6dbe.png'
+                      }
                       alt="Manzil"
                       referrerPolicy="no-referrer"
-                      className="h-7 w-auto object-contain"
+                      className={isOpt4 ? 'h-10 w-auto object-contain' : 'h-7 w-auto object-contain'}
                     />
                   </div>
 

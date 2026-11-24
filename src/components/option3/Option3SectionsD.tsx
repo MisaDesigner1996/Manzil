@@ -568,14 +568,12 @@ export function Option3PricingFaqAndFooter({
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8 py-14 pb-20 sm:pb-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#222130]">
             <div className="lg:col-span-5 space-y-4">
-              <div className="inline-block bg-white rounded-xl px-3.5 py-2">
-                <img
-                  src="/assets/aistudio/manzil_logo_transparent_9f6b6dbe.png"
-                  alt="Manzil"
-                  referrerPolicy="no-referrer"
-                  className="h-8 w-auto object-contain"
-                />
-              </div>
+              <img
+                src="/assets/aistudio/Manzil_Cloud_Tower_Logo_4c2259f1.png"
+                alt="Manzil"
+                referrerPolicy="no-referrer"
+                className="h-16 w-auto object-contain block"
+              />
               <p className="text-sm text-[#A8A2BF] max-w-xs leading-relaxed">
                 AI-powered property management software for modern real estate professionals across
                 the GCC and beyond.

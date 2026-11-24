@@ -46,13 +46,28 @@ import {
 } from './components/option3/Option3SectionsC';
 import { Option3PricingFaqAndFooter } from './components/option3/Option3SectionsD';
 
-type DesignOption = '1' | '2' | '3';
+import {
+  Option4Navbar,
+  Option4Hero,
+  Option4Region,
+} from './components/option4/Option4SectionsA';
+import {
+  Option4WhoItsFor,
+  Option4ChallengeAndFeatures,
+} from './components/option4/Option4SectionsB';
+import {
+  Option4ProductTourAndDay,
+  Option4PdplSection,
+} from './components/option4/Option4SectionsC';
+import { Option4PricingFaqAndFooter } from './components/option4/Option4SectionsD';
+
+type DesignOption = '1' | '2' | '3' | '4';
 
 function getInitialOption(): DesignOption {
-  if (typeof window === 'undefined') return '3';
+  if (typeof window === 'undefined') return '4';
   const param = new URLSearchParams(window.location.search).get('option');
-  if (param === '1' || param === '2' || param === '3') return param;
-  return '3';
+  if (param === '1' || param === '2' || param === '3' || param === '4') return param;
+  return '4';
 }
 
 export default function App() {
@@ -75,7 +90,9 @@ export default function App() {
       ? 'option-1 min-h-screen flex flex-col bg-white text-[#0B0A10]'
       : designOption === '2'
         ? 'option-2 min-h-screen flex flex-col bg-white text-[#171226]'
-        : 'option-3 min-h-screen flex flex-col bg-[#09090D] text-[#F7F6FA]';
+        : designOption === '3'
+          ? 'option-3 min-h-screen flex flex-col bg-[#09090D] text-[#F7F6FA]'
+          : 'option-4 min-h-screen flex flex-col bg-[#08080D] text-[#F7F6FA]';
 
   return (
     <div className={rootClass}>
@@ -139,7 +156,29 @@ export default function App() {
         </>
       )}
 
-      {/* Design Option 1 / Option 2 / Option 3 Switcher */}
+      {designOption === '4' && (
+        <>
+          <Option4Navbar onOpenModal={setActiveModal} />
+          <main className="flex-1">
+            <Option4Hero currency={currency} onOpenModal={setActiveModal} />
+            <Option4Region currency={currency} onSelectCurrency={setCurrency} />
+            <InteractiveDashboard variant="option4" />
+            <Option4WhoItsFor onOpenModal={setActiveModal} />
+            <Option4ChallengeAndFeatures />
+            <Option4ProductTourAndDay currency={currency} onOpenModal={setActiveModal} />
+            <Option4PdplSection />
+            <Option4PricingFaqAndFooter currency={currency} onOpenModal={setActiveModal} />
+          </main>
+          <FooterAndModals
+            activeModal={activeModal}
+            onOpenModal={setActiveModal}
+            hideCtaAndFooter
+            darkTheme
+          />
+        </>
+      )}
+
+      {/* Design Option 1 / Option 2 / Option 3 / Option 4 Switcher */}
       <div
         role="group"
         aria-label="Design option switcher"
@@ -180,6 +219,18 @@ export default function App() {
           }`}
         >
           Option 3
+        </button>
+        <button
+          type="button"
+          aria-pressed={designOption === '4'}
+          onClick={() => selectOption('4')}
+          className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            designOption === '4'
+              ? 'bg-[#5D488F] text-white'
+              : 'text-[#C9BEE6] hover:text-white'
+          }`}
+        >
+          Option 4
         </button>
       </div>
     </div>
